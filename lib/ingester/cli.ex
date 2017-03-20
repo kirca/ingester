@@ -45,13 +45,12 @@ defmodule Ingester.CLI do
   end
 
   def process(:error) do
-    IO.puts """
-    Error!
-    """
+    IO.puts "Error!"
   end
 
   def process({:logs, logs_path}) do
     IO.puts "Processing logs in #{logs_path}"
+    Ingester.OdooLogs.process(logs_path)
   end
   
 end
